@@ -24,7 +24,7 @@ const lyricsData = `
 <i va="36.475998">vào </i>
 <i va="36.972">đôi </i>
 <i va="37.495">mắt </i>
-<i va="37.939">em</i>
+<i va="37.939">em.</i>
 </param>
 <param s="b">
 <i va="42.641">Chiều </i>
@@ -33,7 +33,7 @@ const lyricsData = `
 <i va="43.869">tóc </i>
 <i va="44.443">ngồi </i>
 <i va="45.017998">bên </i>
-<i va="45.488">rèm</i>
+<i va="45.488">rèm.</i>
 </param>
 <param s="b">
 <i va="49.276">Thầm </i>
@@ -42,14 +42,14 @@ const lyricsData = `
 <i va="50.503998">nào </i>
 <i va="51.026">đâu </i>
 <i va="51.575">dám </i>
-<i va="52.097">nói</i>
+<i va="52.097">nói.</i>
 </param>
 <param s="b">
 <i va="53.325">Khép </i>
 <i va="53.769">tâm </i>
 <i va="54.37">tư </i>
 <i va="54.971">lại </i>
-<i va="55.415">thôi</i>
+<i va="55.415">thôi.</i>
 </param>
 <param s="b">
 <i va="56.669">Đường </i>
@@ -57,7 +57,7 @@ const lyricsData = `
 <i va="57.766">vẫn </i>
 <i va="57.922">chưa </i>
 <i va="58.471">mở </i>
-<i va="58.940998">lối</i>
+<i va="58.940998">lối.</i>
 </param>
 <param s="b">
 <i va="62.572">Đời </i>
@@ -66,7 +66,7 @@ const lyricsData = `
 <i va="63.8">trần </i>
 <i va="64.34901">tay </i>
 <i va="64.949005">trắng </i>
-<i va="65.289">tay</i>
+<i va="65.289">tay.</i>
 </param>
 <param s="b">
 <i va="69.26">Trời </i>
@@ -75,7 +75,7 @@ const lyricsData = `
 <i va="70.513">gió </i>
 <i va="71.036">lùa </i>
 <i va="71.637">vai </i>
-<i va="72.133">gầy</i>
+<i va="72.133">gầy.</i>
 </param>
 <param s="b">
 <i va="75.973">Lầu </i>
@@ -84,14 +84,14 @@ const lyricsData = `
 <i va="77.149">về </i>
 <i va="77.723">không </i>
 <i va="78.272">lối </i>
-<i va="78.768005">chiếu</i>
+<i va="78.768005">chiếu.</i>
 </param>
 <param s="b">
 <i va="80.100006">Gác </i>
 <i va="80.518005">cao </i>
 <i va="81.171005">ngăn </i>
 <i va="81.746">niềm </i>
-<i va="82.269005">yêu</i>
+<i va="82.269005">yêu.</i>
 </param>
 <param s="b">
 <i va="83.444">Thì </i>
@@ -99,7 +99,7 @@ const lyricsData = `
 <i va="84.515">mơ </i>
 <i va="84.672005">ước </i>
 <i va="85.168">chi </i>
-<i va="85.769005">nhiều</i>
+<i va="85.769005">nhiều.</i>
 </param>
 <param s="b">
 <i va="91.411">Bên </i>
@@ -113,7 +113,7 @@ const lyricsData = `
 <i va="97.263">biệt </i>
 <i va="97.838005">mấy </i>
 <i va="98.491005">sơn </i>
-<i va="98.935005">khê</i>
+<i va="98.935005">khê.</i>
 </param>
 <param s="b">
 <i va="101.233">Ngày </i>
@@ -127,7 +127,7 @@ const lyricsData = `
 <i va="107.137">tôi </i>
 <i va="107.921005">rưng </i>
 <i va="108.469">rưng </i>
-<i va="108.913">sầu</i>
+<i va="108.913">sầu.</i>
 </param>
 <param s="b">
 <i va="110.455">Lặng </i>
@@ -137,7 +137,7 @@ const lyricsData = `
 <i va="112.962006">tiễn </i>
 <i va="113.824005">ai </i>
 <i va="114.582">qua </i>
-<i va="114.922005">cầu</i>
+<i va="114.922005">cầu.</i>
 </param>
 <param s="b">
 <i va="115.496">Đường </i>
@@ -146,7 +146,7 @@ const lyricsData = `
 <i va="117.064">màu </i>
 <i va="117.534004">sao </i>
 <i va="118.082">thiếu </i>
-<i va="118.579">em</i>
+<i va="118.579">em.</i>
 </param>
 <param s="b">
 <i va="122.628006">Về </i>
@@ -155,7 +155,7 @@ const lyricsData = `
 <i va="123.882">tóc </i>
 <i va="124.404">xõa </i>
 <i va="124.979004">bên </i>
-<i va="125.449005">rèm</i>
+<i va="125.449005">rèm.</i>
 </param>
 <param s="b">
 <i va="129.263">Lầu </i>
@@ -164,7 +164,7 @@ const lyricsData = `
 <i va="130.464">người </i>
 <i va="131.118">song </i>
 <i va="131.666">khép </i>
-<i va="132.18901">kín</i>
+<i va="132.18901">kín.</i>
 </param>
 <param s="b">
 <i va="133.46901">Nhớ </i>
@@ -177,8 +177,16 @@ const lyricsData = `
 <i va="137.85701">tiếng </i>
 <i va="138.171">lá </i>
 <i va="139.059">rơi </i>
-<i va="139.58101">thềm</i>
+<i va="139.58101">thềm...</i>
 </param>
+
+<param s="b">
+
+<i va="165">1 </i>
+<i va="166">2 </i>
+<i va="167">3 </i>
+</param>
+
 <param s="b">
 <i va="168.10701">Bên </i>
 <i va="169.021">nhau </i>
@@ -191,7 +199,7 @@ const lyricsData = `
 <i va="173.828">biệt </i>
 <i va="174.429">mấy </i>
 <i va="175.134">sơn </i>
-<i va="175.552">khê</i>
+<i va="175.552">khê.</i>
 </param>
 <param s="b">
 <i va="177.981">Ngày </i>
@@ -205,7 +213,7 @@ const lyricsData = `
 <i va="183.83301">tôi </i>
 <i va="184.46">rưng </i>
 <i va="185.087">rưng </i>
-<i va="185.531">sầu</i>
+<i va="185.531">sầu.</i>
 </param>
 <param s="b">
 <i va="187.15001">Lặng </i>
@@ -215,7 +223,7 @@ const lyricsData = `
 <i va="189.031">tiễn </i>
 <i va="189.58">ai </i>
 <i va="189.97101">qua </i>
-<i va="191.878">cầu</i>
+<i va="191.878">cầu.</i>
 </param>
 <param s="b">
 <i va="192.479">Đường </i>
@@ -224,7 +232,7 @@ const lyricsData = `
 <i va="193.864">màu </i>
 <i va="194.464">sao </i>
 <i va="195.039">thiếu </i>
-<i va="195.536">em</i>
+<i va="195.536">em.</i>
 </param>
 <param s="b">
 <i va="199.271">Về </i>
@@ -233,7 +241,7 @@ const lyricsData = `
 <i va="200.52501">tóc </i>
 <i va="201.047">xõa </i>
 <i va="201.62201">bên </i>
-<i va="202.144">rèm</i>
+<i va="202.144">rèm.</i>
 </param>
 <param s="b">
 <i va="205.932">Lầu </i>
@@ -242,7 +250,7 @@ const lyricsData = `
 <i va="207.108">người </i>
 <i va="207.709">song </i>
 <i va="208.336">khép </i>
-<i va="208.806">kín</i>
+<i va="208.806">kín.</i>
 </param>
 <param s="b">
 <i va="210.033">Nhớ </i>
@@ -255,7 +263,7 @@ const lyricsData = `
 <i va="214.709">tiếng </i>
 <i va="215.284">lá </i>
 <i va="215.493">rơi </i>
-<i va="215.83301">thềm</i>
+<i va="215.83301">thềm.</i>
 </param>
 <param s="b">
 <i va="219.307">Lầu </i>
@@ -264,7 +272,7 @@ const lyricsData = `
 <i va="220.535">người </i>
 <i va="221.162">song </i>
 <i va="221.684">khép </i>
-<i va="222.233">kín</i>
+<i va="222.233">kín.</i>
 </param>
 <param s="b">
 <i va="223.513">Nhớ </i>
@@ -277,7 +285,7 @@ const lyricsData = `
 <i va="232.96901">tiếng </i>
 <i va="234.06601">lá </i>
 <i va="235.13701">rơi </i>
-<i va="236.522">thềm</i>
+<i va="236.522">thềm.</i>
 </param>
 </data>
 `;
