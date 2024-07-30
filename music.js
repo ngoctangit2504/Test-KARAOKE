@@ -5,6 +5,15 @@ const totalTimeDisplay = document.getElementById('total-time');
 const seekBar = document.getElementById('seek-bar');
 const canvas = document.getElementById('lyrics-canvas');
 const ctx = canvas.getContext('2d');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+const playlistButton = document.getElementById('playlist-button');
+const backButton = document.getElementById('back-button');
+const playlistSongs = document.getElementById('playlist-songs');
+const currentSongTitle = document.getElementById('current-song-title');
+const playlistDiv = document.getElementById('playlist');
+const searchBar = document.getElementById('searchBar');
+const replayButton = document.getElementById('replay-button');
 
 const lyricsData = `
 <data>
@@ -290,7 +299,18 @@ const lyricsData = `
 </data>
 `;
 
+const songs = [
+    { title: "Về đâu mái tóc người thương", author: "Nhật Ngân", file: "BaiHat/beat.mp3", lyrics: lyricsData },
+    { title: "Cho em gần anh thêm chút nữa", author: "Hương Tràm", file: "BaiHat/Cho Em Gần Anh Thêm Chút Nữa Remix Vinahouse.mp3" },
+    { title: "Nàng thơ hihi", author: "Hoàng Dũng", file: "BaiHat/Nàng thơ.mp3" },
+];
+
+let currentSongIndex = 0;
+let lyricsArray = [];
+
 function parseLyrics(lyrics) {
+    if (!lyrics) return [];
+
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(lyrics, "text/xml");
     const params = xmlDoc.getElementsByTagName("param");
@@ -307,10 +327,10 @@ function parseLyrics(lyrics) {
     return lyricEntries;
 }
 
-let lyrics = parseLyrics(lyricsData);
-
 function displayLyrics() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (lyricsArray.length === 0) return;
+
     ctx.font = "16px Arial";
 
     let currentTime = audio.currentTime;
@@ -319,15 +339,15 @@ function displayLyrics() {
     let currentLine = 0;
     let lineOffset = 0;
 
-    for (let i = 0; i < lyrics.length; i++) {
-        let line = lyrics[i];
+    for (let i = 0; i < lyricsArray.length; i++) {
+        let line = lyricsArray[i];
         if (line.some(word => currentTime >= word.time)) {
             currentLine = i;
         }
     }
 
-    for (let i = currentLine; i < currentLine + visibleLines && i < lyrics.length; i++) {
-        let line = lyrics[i];
+    for (let i = currentLine; i < currentLine + visibleLines && i < lyricsArray.length; i++) {
+        let line = lyricsArray[i];
         let x = 10; // Starting x position for each line
         let y = startY + ((i - currentLine + lineOffset) * 20); // y position for each line
 
@@ -376,18 +396,31 @@ function displayLyrics() {
     }
 }
 
-audio.addEventListener('timeupdate', () => {
+const updateProgress = () => {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    seekBar.value = (currentTime / duration) * 100;
+    currentTimeDisplay.textContent = formatTime(currentTime);
+    totalTimeDisplay.textContent = formatTime(duration);
+};
+
+const loadSong = (index) => {
+    currentSongIndex = index;
+    audio.src = songs[index].file;
+    lyricsArray = parseLyrics(songs[index].lyrics);
+    currentSongTitle.textContent = songs[index].title;
+    audio.play();
+    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     displayLyrics();
-    currentTimeDisplay.textContent = formatTime(audio.currentTime);
-    seekBar.value = (audio.currentTime / audio.duration) * 100;
-});
+};
 
 audio.addEventListener('loadedmetadata', () => {
     totalTimeDisplay.textContent = formatTime(audio.duration);
 });
 
-seekBar.addEventListener('input', () => {
-    audio.currentTime = (seekBar.value / 100) * audio.duration;
+audio.addEventListener('timeupdate', () => {
+    updateProgress();
+    displayLyrics();
 });
 
 playPauseButton.addEventListener('click', () => {
@@ -400,7 +433,134 @@ playPauseButton.addEventListener('click', () => {
     }
 });
 
+replayButton.addEventListener('click', () => {
+    audio.currentTime = 0;
+    if (audio.paused) {
+        audio.play();
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+    }
+});
 
+prevButton.addEventListener('click', () => {
+    if (currentSongIndex > 0) {
+        loadSong(currentSongIndex - 1);
+    }
+});
+
+nextButton.addEventListener('click', () => {
+    if (currentSongIndex < songs.length - 1) {
+        loadSong(currentSongIndex + 1);
+    }
+});
+
+seekBar.addEventListener('input', () => {
+    const seekTime = (seekBar.value / 100) * audio.duration;
+    audio.currentTime = seekTime;
+});
+
+playlistButton.addEventListener('click', () => {
+    // Hide music player elements
+    canvas.style.display = 'none';
+    playPauseButton.style.display = 'none';
+    replayButton.style.display = 'none';
+    prevButton.style.display = 'none';
+    nextButton.style.display = 'none';
+    currentSongTitle.style.display = 'none';
+    seekBar.style.display = 'none';
+    currentTimeDisplay.style.display = 'none';
+    totalTimeDisplay.style.display = 'none';
+    playlistButton.style.display = 'none';
+
+    // Show playlist
+    playlistDiv.style.display = 'block';
+});
+
+backButton.addEventListener('click', () => {
+    // Show music player elements
+    canvas.style.display = 'block';
+    playPauseButton.style.display = 'block';
+    replayButton.style.display = 'block';
+    prevButton.style.display = 'block';
+    nextButton.style.display = 'block';
+    currentSongTitle.style.display = 'block';
+    seekBar.style.display = 'block';
+    currentTimeDisplay.style.display = 'block';
+    totalTimeDisplay.style.display = 'block';
+    playlistButton.style.display = 'block';
+
+    // Hide playlist
+    playlistDiv.style.display = 'none';
+});
+
+songs.forEach((song, index) => {
+    const li = document.createElement('li');
+    li.textContent = song.title;
+    li.classList.add('list-group-item');
+    li.addEventListener('click', () => {
+        loadSong(index);
+        // Show music player elements
+        canvas.style.display = 'block';
+        playPauseButton.style.display = 'block';
+        replayButton.style.display = 'block';
+        prevButton.style.display = 'block';
+        nextButton.style.display = 'block';
+        currentSongTitle.style.display = 'block';
+        seekBar.style.display = 'block';
+        currentTimeDisplay.style.display = 'block';
+        totalTimeDisplay.style.display = 'block';
+        playlistButton.style.display = 'block';
+
+        // Hide playlist
+        playlistDiv.style.display = 'none';
+    });
+    playlistSongs.appendChild(li);
+});
+
+loadSong(currentSongIndex);
+
+const displaySongs = (songsToDisplay) => {
+    playlistSongs.innerHTML = "";
+    if (songsToDisplay.length === 0) {
+        const noResults = document.createElement('li');
+        noResults.textContent = "Không tìm thấy bài hát nào";
+        noResults.classList.add('list-group-item');
+        playlistSongs.appendChild(noResults);
+    } else {
+        songsToDisplay.forEach((song, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${song.title}</strong> - <em>${song.author}</em>`;
+            li.classList.add('list-group-item');
+            li.addEventListener('click', () => {
+                loadSong(index);
+                // Show music player elements
+                canvas.style.display = 'block';
+                playPauseButton.style.display = 'block';
+                prevButton.style.display = 'block';
+                nextButton.style.display = 'block';
+                currentSongTitle.style.display = 'block';
+                seekBar.style.display = 'block';
+                currentTimeDisplay.style.display = 'block';
+                totalTimeDisplay.style.display = 'block';
+                playlistButton.style.display = 'block';
+
+                // Hide playlist
+                playlistDiv.style.display = 'none';
+            });
+            playlistSongs.appendChild(li);
+        });
+    }
+};
+
+displaySongs(songs);
+
+searchBar.addEventListener('input', () => {
+    const query = searchBar.value.toLowerCase();
+    const filteredSongs = songs.filter(song =>
+        song.title.toLowerCase().includes(query) ||
+        song.author.toLowerCase().includes(query)
+    );
+    displaySongs(filteredSongs);
+});
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);

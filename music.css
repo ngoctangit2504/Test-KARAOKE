@@ -2,17 +2,18 @@
     width: 365px;
     margin: 60px auto;
     text-align: center;
-    background-image: url("BaiHat/bgapp.jpg");
     padding: 20px;
     border-radius: 10px;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: cursive
+    font-family: cursive;
 }
 
 #lyrics-canvas {
     border-radius: 6px;
-    border:1px solid #000000;
+    border: none;
     background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 102, 188, 0.5);
     margin-bottom: 10px;
     width: 100%;
 }
@@ -21,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    ont-size: 18px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -31,4 +32,54 @@
 
 #play-pause {
     font-size: 18px;
+}
+
+.btn-pink-shadow {
+    height: 1.5cm;
+    width: 1.5cm;
+    border-radius: 30px;
+    background-color: white;
+    color: gray;
+}
+
+.btn-pink-shadow:hover {
+    box-shadow: 0px 6px 6px rgba(255, 102, 188, 0.5);
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#replay-button, #playlist-button ,#prev-button, #next-button{
+    border: none;
+}
+
+#playlist {
+    display: none;
+    text-align: left;
+}
+
+#playlist-songs {
+    list-style: none;
+    padding: 0;
+}
+
+#playlist-songs li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#back-button {
+    margin-top: 10px;
+}
+
+#searchBar {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    cursor: pointer;
 }

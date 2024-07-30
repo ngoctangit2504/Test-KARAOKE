@@ -11,9 +11,9 @@
 <body>
 
 <div id="music-player">
-    <audio id="audio" src="BaiHat/beat.mp3"></audio>
-    <h1> KARAOKE</h1>
-    <p>Về đâu mái tóc người thương</p>
+    <audio id="audio"></audio>
+    <h1>INMOBILE</h1>
+    <h2 id="current-song-title">Không có bài hát nào...</h2>
 
     <canvas id="lyrics-canvas"></canvas>
     <div id="controls">
@@ -25,7 +25,22 @@
             <input type="range" id="seek-bar" value="0" max="100">
         </div>
     </div>
-    <button id="play-pause" type="button" class="btn btn-outline-dark"><i class="fas fa-play"></i></button>
+
+    <div id="buttons">
+        <button id="replay-button" type="button" class="btn-pink-shadow"><i class="fa fa-undo"></i></button>
+        <button id="prev-button" type="button" class="btn-pink-shadow"><i class="fas fa-backward"></i></button>
+        <button id="play-pause" type="button" class="btn-pink-shadow"><i class="fas fa-play"></i></button>
+        <button id="next-button" type="button" class="btn-pink-shadow"><i class="fas fa-forward"></i></button>
+        <button id="playlist-button" type="button" class="btn-pink-shadow"><i class="fas fa-list"></i></button>
+    </div>
+
+    <!-- Playlist Div -->
+    <div id="playlist" style="display:none;">
+        <h2>Danh sách phát</h2>
+        <input type="text" id="searchBar" placeholder="Tìm kiếm bài hát...">
+        <ul id="playlist-songs" class="list-group"></ul>
+        <button id="back-button" type="button" class="btn btn-secondary">Trở về</button>
+    </div>
 </div>
 
 <script src="music.js"></script>
