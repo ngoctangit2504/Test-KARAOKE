@@ -535,6 +535,7 @@ const displaySongs = (songsToDisplay) => {
                 // Show music player elements
                 canvas.style.display = 'block';
                 playPauseButton.style.display = 'block';
+                replayButton.style.display = 'block';
                 prevButton.style.display = 'block';
                 nextButton.style.display = 'block';
                 currentSongTitle.style.display = 'block';
