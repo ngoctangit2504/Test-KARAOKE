@@ -409,8 +409,7 @@ const loadSong = (index) => {
     audio.src = songs[index].file;
     lyricsArray = parseLyrics(songs[index].lyrics);
     currentSongTitle.textContent = songs[index].title;
-    audio.play();
-    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
     displayLyrics();
 };
 
@@ -444,12 +443,16 @@ replayButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
     if (currentSongIndex > 0) {
         loadSong(currentSongIndex - 1);
+        audio.play();
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     }
 });
 
 nextButton.addEventListener('click', () => {
     if (currentSongIndex < songs.length - 1) {
         loadSong(currentSongIndex + 1);
+        audio.play();
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     }
 });
 
@@ -498,6 +501,8 @@ songs.forEach((song, index) => {
     li.classList.add('list-group-item');
     li.addEventListener('click', () => {
         loadSong(index);
+        audio.play();
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         // Show music player elements
         canvas.style.display = 'block';
         playPauseButton.style.display = 'block';
@@ -532,6 +537,8 @@ const displaySongs = (songsToDisplay) => {
             li.classList.add('list-group-item');
             li.addEventListener('click', () => {
                 loadSong(index);
+                audio.play();
+                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
                 // Show music player elements
                 canvas.style.display = 'block';
                 playPauseButton.style.display = 'block';
